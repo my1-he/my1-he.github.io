@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="HTML的常见标签">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="学习HTML_2">
+<meta property="og:url" content="http://example.com/2026/05/23/%E5%AD%A6%E4%B9%A0HTML_2/index.html">
+<meta property="og:site_name" content="my1-he|🏠个人博客">
+<meta property="og:description" content="HTML的常见标签">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-23T06:13:37.638Z">
+<meta property="article:modified_time" content="2026-05-23T07:03:49.548Z">
+<meta property="article:author" content="my1-he">
+<meta property="article:tag" content="HTML">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2026/05/23/%E5%AD%A6%E4%B9%A0HTML_2/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2026/05/23/%E5%AD%A6%E4%B9%A0HTML_2/","path":"2026/05/23/学习HTML_2/","title":"学习HTML_2"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>学习HTML_2 | my1-he|🏠个人博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">my1-he|🏠个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-捐赠"><a href="/donate/" rel="section"><i class="fa fa-heart fa-fw"></i>捐赠</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">HTML基础学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81-HTML-%E5%9F%BA%E7%A1%80%E6%A0%87%E7%AD%BE%E4%B8%8E%E6%8E%92%E7%89%88"><span class="nav-number">1.1.</span> <span class="nav-text">一、 HTML 基础标签与排版</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A0%87%E9%A2%98%E4%B8%8E%E6%B0%B4%E5%B9%B3%E7%BA%BF%E6%A0%87%E7%AD%BE"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 标题与水平线标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 图片标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%9F%B3%E9%A2%91%E4%B8%8E%E8%A7%86%E9%A2%91%E6%A0%87%E7%AD%BE"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 音频与视频标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%8D%A2%E8%A1%8C%E4%B8%8E%E6%AE%B5%E8%90%BD%E6%A0%87%E7%AD%BE"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. 换行与段落标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%96%87%E6%9C%AC%E5%8A%A0%E7%B2%97%E6%A0%87%E7%AD%BE"><span class="nav-number">1.1.5.</span> <span class="nav-text">5. 文本加粗标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E6%97%A0%E8%AF%AD%E4%B9%89%E5%B8%83%E5%B1%80%E6%A0%87%E7%AD%BE"><span class="nav-number">1.1.6.</span> <span class="nav-text">6. 无语义布局标签 &lt;span&gt;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81-%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">1.2.</span> <span class="nav-text">二、 超链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81-CSS-%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%BC%95%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">三、 CSS 基础与引入方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-CSS-%E5%BC%95%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. CSS 引入方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%A2%9C%E8%89%B2%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 颜色表示法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81-CSS-%E9%80%89%E6%8B%A9%E5%99%A8%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">1.4.</span> <span class="nav-text">四、 CSS 选择器与优先级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. 基础选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%80%89%E6%8B%A9%E5%99%A8%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. 选择器优先级</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81-%E5%B8%B8%E7%94%A8-CSS-%E5%B1%9E%E6%80%A7"><span class="nav-number">1.5.</span> <span class="nav-text">五、 常用 CSS 属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AD%97%E4%BD%93%E4%B8%8E%E6%96%87%E6%9C%AC%E5%9F%BA%E7%A1%80"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. 字体与文本基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%8E%92%E7%89%88%E9%AB%98%E7%BA%A7%E5%B1%9E%E6%80%A7"><span class="nav-number">1.5.2.</span> <span class="nav-text">2. 排版高级属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B-Box-Model"><span class="nav-number">1.6.</span> <span class="nav-text">六、 盒子模型 (Box Model)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%93%91-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B-Box-Model-%E6%B7%B1%E5%BA%A6%E8%A1%A5%E5%85%85%E7%AC%94%E8%AE%B0"><span class="nav-number">2.</span> <span class="nav-text">📑 盒子模型 (Box Model) 深度补充笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%9B%9B%E4%B8%AA%E6%A0%B8%E5%BF%83%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="nav-number">2.1.</span> <span class="nav-text">一、 盒子模型的四个核心组成部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%A0%B8%E5%BF%83-CSS-%E5%B1%9E%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">二、 盒子模型的核心 CSS 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81-%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6%EF%BC%9A%E6%96%B9%E4%BD%8D%E6%8E%A7%E5%88%B6%E4%B8%8E%E5%A4%8D%E5%90%88%E5%86%99%E6%B3%95%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="nav-number">2.3.</span> <span class="nav-text">三、 高级进阶：方位控制与复合写法（重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8D%95%E4%B8%AA%E6%96%B9%E4%BD%8D%E7%B2%BE%E5%87%86%E6%8E%A7%E5%88%B6"><span class="nav-number">2.3.1.</span> <span class="nav-text">1. 单个方位精准控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%B1%9E%E6%80%A7%E5%80%BC%E8%BF%9E%E5%86%99%E8%A7%84%E5%88%99%EF%BC%88%E9%A1%BA%E6%97%B6%E9%92%88%E5%8E%9F%E5%88%99%EF%BC%89"><span class="nav-number">2.3.2.</span> <span class="nav-text">2. 属性值连写规则（顺时针原则）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81-%E6%8B%93%E5%B1%95%E8%80%83%E7%82%B9%EF%BC%9A%E7%9B%92%E5%AD%90%E7%9A%84%E5%AE%9E%E9%99%85%E5%A4%A7%E5%B0%8F%E8%AE%A1%E7%AE%97"><span class="nav-number">2.4.</span> <span class="nav-text">四、 拓展考点：盒子的实际大小计算</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="my1-he"
+      src="/images/-15874840686009037.suf.jpg">
+  <p class="site-author-name" itemprop="name">my1-he</p>
+  <div class="site-description" itemprop="description">活着真好！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/my1-he" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;my1-he" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=spendpq@gmail.com" title="E-Mail → https:&#x2F;&#x2F;mail.google.com&#x2F;mail&#x2F;?view&#x3D;cm&amp;fs&#x3D;1&amp;to&#x3D;spendpq@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://unpkg.com/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://example.com/" title="https:&#x2F;&#x2F;example.com">Title</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/05/23/%E5%AD%A6%E4%B9%A0HTML_2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/-15874840686009037.suf.jpg">
+      <meta itemprop="name" content="my1-he">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="my1-he|🏠个人博客">
+      <meta itemprop="description" content="活着真好！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="学习HTML_2 | my1-he|🏠个人博客">
+      <meta itemprop="description" content="HTML的常见标签">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          学习HTML_2
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-23 14:13:37 / 修改时间：15:03:49" itemprop="dateCreated datePublished" datetime="2026-05-23T14:13:37+08:00">2026-05-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">HTML的常见标签</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="HTML基础学习笔记"><a href="#HTML基础学习笔记" class="headerlink" title="HTML基础学习笔记"></a>HTML基础学习笔记</h1><p>本笔记根据 HTML&#x2F;CSS 核心知识点课件及课堂手记整理，涵盖了网页排版、超链接、CSS基础语法与引入方式、选择器、文本样式以及盒子模型等核心内容。</p>
+<hr>
+<h2 id="一、-HTML-基础标签与排版"><a href="#一、-HTML-基础标签与排版" class="headerlink" title="一、 HTML 基础标签与排版"></a>一、 HTML 基础标签与排版</h2><h3 id="1-标题与水平线标签"><a href="#1-标题与水平线标签" class="headerlink" title="1. 标题与水平线标签"></a>1. 标题与水平线标签</h3><ul>
+<li><p><strong>标题标签</strong>：<code>&lt;h1&gt;</code> 到 <code>&lt;h6&gt;</code></p>
+</li>
+<li><p><strong>水平线标签</strong>：<code>&lt;hr&gt;</code>，用于在页面中插入一条水平分割线。</p>
+</li>
+</ul>
+<h3 id="2-图片标签"><a href="#2-图片标签" class="headerlink" title="2. 图片标签"></a>2. 图片标签</h3><ul>
+<li><strong>标签格式</strong>：<code>&lt;img src=&quot;图片路径&quot; width=&quot;宽度&quot; height=&quot;高度&quot;&gt;</code></li>
+<li><strong>路径分类</strong>：<ul>
+<li><strong>绝对路径</strong>：<ul>
+<li>绝对磁盘路径：如 <code>D:/xxxx/image.png</code></li>
+<li>绝对网络路径：如 <code>https://xxxx/image.png</code></li>
+</ul>
+</li>
+<li><strong>相对路径</strong>：从当前文件所在目录开始查找。<ul>
+<li><code>./</code> ：当前目录</li>
+<li><code>../</code> ：上级目录</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-音频与视频标签"><a href="#3-音频与视频标签" class="headerlink" title="3. 音频与视频标签"></a>3. 音频与视频标签</h3><ul>
+<li><strong>视频标签</strong>：<code>&lt;video src=&quot;视频路径&quot; controls width=&quot;宽度&quot; height=&quot;高度&quot;&gt;</code></li>
+<li><strong>音频标签</strong>：<code>&lt;audio src=&quot;音频路径&quot; controls&gt;</code></li>
+<li><em>核心属性说明</em>：<code>src</code> 指定资源路径；<code>controls</code> 用于显示播放控制面板。</li>
+</ul>
+<h3 id="4-换行与段落标签"><a href="#4-换行与段落标签" class="headerlink" title="4. 换行与段落标签"></a>4. 换行与段落标签</h3><ul>
+<li><strong>换行标签</strong>：<code>&lt;br&gt;</code> （单标签）</li>
+<li><strong>段落标签</strong>：<code>&lt;p&gt;</code> （双标签）</li>
+<li><strong>空白字符注意点</strong>：在 HTML 中无论输入多少个空格，网页上默认只会显示一个。如果需要连续的空格，可以使用空格占位符：<code>&amp;nbsp;</code>。</li>
+</ul>
+<h3 id="5-文本加粗标签"><a href="#5-文本加粗标签" class="headerlink" title="5. 文本加粗标签"></a>5. 文本加粗标签</h3><ul>
+<li><code>&lt;b&gt;</code> 和 <code>&lt;strong&gt;</code></li>
+<li><em>注：<code>&lt;strong&gt;</code> 比 <code>&lt;b&gt;</code> 更加具有语义化，强调内容的重要性。</em></li>
+</ul>
+<h3 id="6-无语义布局标签"><a href="#6-无语义布局标签" class="headerlink" title="6. 无语义布局标签 &lt;span&gt;"></a>6. 无语义布局标签 <code>&lt;span&gt;</code></h3><ul>
+<li><strong>特点</strong>：<code>&lt;span&gt;</code> 是一个在开发网页时大量会用到的<strong>没有语义</strong>的布局标签。</li>
+<li><strong>表现</strong>：一行可以显示多个（组合行内元素），其宽度和高度默认由内部的文本内容撑开，不支持直接设置宽高。</li>
+</ul>
+<hr>
+<h2 id="二、-超链接"><a href="#二、-超链接" class="headerlink" title="二、 超链接"></a>二、 超链接</h2><ul>
+<li><strong>标签格式</strong>：<code>&lt;a href=&quot;url&quot; target=&quot;打开方式&quot;&gt;链接文本&lt;/a&gt;</code></li>
+<li><strong>核心属性</strong>：<ul>
+<li><code>href</code>：指定资源访问的 URL 地址。</li>
+<li><code>target</code>：指定在何处打开资源链接。<ul>
+<li><code>_self</code>：默认值，在当前窗口&#x2F;标签页打开。</li>
+<li><code>_blank</code>：在新空白标签页中打开。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>相关CSS修饰</strong>：<ul>
+<li><code>text-decoration</code>：规定添加到文本的修饰。常用 <code>text-decoration: none;</code> 来去除超链接默认的下划线。</li>
+<li><code>color</code>：定义超链接文本的颜色。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="三、-CSS-基础与引入方式"><a href="#三、-CSS-基础与引入方式" class="headerlink" title="三、 CSS 基础与引入方式"></a>三、 CSS 基础与引入方式</h2><h3 id="1-CSS-引入方式"><a href="#1-CSS-引入方式" class="headerlink" title="1. CSS 引入方式"></a>1. CSS 引入方式</h3><p>CSS 共有三种主流引入到 HTML 中的方式：</p>
+<ol>
+<li><strong>行内样式（内联样式）</strong>：直接在标签的 <code>style</code> 属性中编写。<ul>
+<li>示例：<code>&lt;h1 style=&quot;color: red;&quot;&gt;内容&lt;/h1&gt;</code></li>
+</ul>
+</li>
+<li><strong>内嵌样式</strong>：在 HTML 文件的 <code>&lt;head&gt;</code> 标签内使用 <code>&lt;style&gt;</code> 标签包裹 CSS 代码。<ul>
+<li>示例：<code>&lt;style&gt; h1 &#123; color: blue; &#125; &lt;/style&gt;</code></li>
+</ul>
+</li>
+<li><strong>外联样式（外部样式表）</strong>：将 CSS 代码单独写在 <code>.css</code> 文件中，通过 <code>&lt;link&gt;</code> 标签引入。<ul>
+<li>示例：<code>&lt;link href=&quot;xxx.css&quot; rel=&quot;stylesheet&quot;&gt;</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="2-颜色表示法"><a href="#2-颜色表示法" class="headerlink" title="2. 颜色表示法"></a>2. 颜色表示法</h3><p>在 CSS 中，颜色可以通过以下三种方式表示：</p>
+<ul>
+<li><strong>关键字</strong>：如 <code>red</code>, <code>green</code>, <code>blue</code> 等。</li>
+<li><strong>rgb表示法</strong>：红(r)、绿(g)、蓝(b)三原色调配，取值范围 0~255。<ul>
+<li>示例：<code>rgb(255, 0, 0)</code>（红色）, <code>rgb(134, 100, 89)</code></li>
+</ul>
+</li>
+<li><strong>十六进制法</strong>：以 <code>#</code> 开头，后面跟6位或3位十六进制字符。<ul>
+<li>示例：<code>#ff0000</code>（红色）, <code>#cccccc</code>, <code>#ccc</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="四、-CSS-选择器与优先级"><a href="#四、-CSS-选择器与优先级" class="headerlink" title="四、 CSS 选择器与优先级"></a>四、 CSS 选择器与优先级</h2><h3 id="1-基础选择器"><a href="#1-基础选择器" class="headerlink" title="1. 基础选择器"></a>1. 基础选择器</h3><ul>
+<li><strong>元素选择器（标签选择器）</strong>：通过标签名选择元素。<ul>
+<li>语法：<code>标签名 &#123; ... &#125;</code></li>
+</ul>
+</li>
+<li><strong>id选择器</strong>：通过元素的 <code>id</code> 属性精确定位唯一元素。<ul>
+<li>语法：<code>#id属性值 &#123; ... &#125;</code></li>
+</ul>
+</li>
+<li><strong>类选择器（class选择器）</strong>：通过元素的 <code>class</code> 属性选择一组元素。<ul>
+<li>语法：<code>.class属性值 &#123; ... &#125;</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-选择器优先级"><a href="#2-选择器优先级" class="headerlink" title="2. 选择器优先级"></a>2. 选择器优先级</h3><p>当多个选择器作用于同一个元素时，样式的层叠优先级为：<br>$$\text{id选择器} &gt; \text{类选择器} &gt; \text{元素选择器}$$</p>
+<hr>
+<h2 id="五、-常用-CSS-属性"><a href="#五、-常用-CSS-属性" class="headerlink" title="五、 常用 CSS 属性"></a>五、 常用 CSS 属性</h2><h3 id="1-字体与文本基础"><a href="#1-字体与文本基础" class="headerlink" title="1. 字体与文本基础"></a>1. 字体与文本基础</h3><ul>
+<li><code>color</code>：设置文本的颜色。</li>
+<li><code>font-size</code>：字体大小。（<em>注意：记得加 px 单位</em>）。</li>
+</ul>
+<h3 id="2-排版高级属性"><a href="#2-排版高级属性" class="headerlink" title="2. 排版高级属性"></a>2. 排版高级属性</h3><ul>
+<li><code>line-height</code>：设置行高，用于控制行与行之间的垂直间距或实现单行文本垂直居中。</li>
+<li><code>text-indent</code>：定义第一个行内容的缩进（常用于首行缩进，如 <code>text-indent: 2em;</code>）。</li>
+<li><code>text-align</code>：规定元素中文本的水平对齐方式（如 <code>left</code>, <code>center</code>, <code>right</code>）。</li>
+</ul>
+<hr>
+<h2 id="六、-盒子模型-Box-Model"><a href="#六、-盒子模型-Box-Model" class="headerlink" title="六、 盒子模型 (Box Model)"></a>六、 盒子模型 (Box Model)</h2><p>网页中的每一个元素都可以看作是一个矩形的“盒子”，盒子模型由以下四部分组成：</p>
+<ol>
+<li>**content (内容)**：盒子的核心，存放文字、图片等实际内容的区域。</li>
+<li>**padding (内边距)**：内容与边框之间的透明区域。</li>
+<li>**border (边框)**：围绕在内边距和内容外围的线条。</li>
+<li>**margin (外边距)**：控制盒子与盒子之间的外部距离。</li>
+</ol>
+<h1 id="📑-盒子模型-Box-Model-深度补充笔记"><a href="#📑-盒子模型-Box-Model-深度补充笔记" class="headerlink" title="📑 盒子模型 (Box Model) 深度补充笔记"></a>📑 盒子模型 (Box Model) 深度补充笔记</h1><p>网页中的每一个元素都可以看作是一个矩形的“盒子”。在网页布局中，我们通过设置不同的 CSS 属性来调整盒子的大小和间距。</p>
+<hr>
+<h2 id="一、-盒子模型的四个核心组成部分"><a href="#一、-盒子模型的四个核心组成部分" class="headerlink" title="一、 盒子模型的四个核心组成部分"></a>一、 盒子模型的四个核心组成部分</h2><ol>
+<li><strong><code>content</code>（内容）</strong>：盒子的核心，存放文字、图片等实际内容的区域。</li>
+<li><strong><code>padding</code>（内边距）</strong>：内容与边框之间的透明区域。</li>
+<li><strong><code>border</code>（边框）</strong>：围绕在内边距和内容外围的线条。</li>
+<li><strong><code>margin</code>（外边距）</strong>：控制盒子与盒子之间的外部距离，是透明的。</li>
+</ol>
+<hr>
+<h2 id="二、-盒子模型的核心-CSS-属性"><a href="#二、-盒子模型的核心-CSS-属性" class="headerlink" title="二、 盒子模型的核心 CSS 属性"></a>二、 盒子模型的核心 CSS 属性</h2><p>为了精确控制盒子，我们需要熟练掌握以下属性：</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性名</th>
+<th align="left">功能说明</th>
+<th align="left">语法示例及要点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>width</code></strong></td>
+<td align="left">设置内容的宽度</td>
+<td align="left"><code>width: 200px;</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>height</code></strong></td>
+<td align="left">设置内容的高度</td>
+<td align="left"><code>height: 150px;</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>border</code></strong></td>
+<td align="left">设置边框的属性</td>
+<td align="left"><code>border: 1px solid #000;</code><br><em>(同时设置：线宽 样式 颜色)</em></td>
+</tr>
+<tr>
+<td align="left"><strong><code>padding</code></strong></td>
+<td align="left">设置内边距（内衬）</td>
+<td align="left"><code>padding: 20px;</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>margin</code></strong></td>
+<td align="left">设置外边距（间距）</td>
+<td align="left"><code>margin: 10px;</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="三、-高级进阶：方位控制与复合写法（重点）"><a href="#三、-高级进阶：方位控制与复合写法（重点）" class="headerlink" title="三、 高级进阶：方位控制与复合写法（重点）"></a>三、 高级进阶：方位控制与复合写法（重点）</h2><h3 id="1-单个方位精准控制"><a href="#1-单个方位精准控制" class="headerlink" title="1. 单个方位精准控制"></a>1. 单个方位精准控制</h3><p>如果你只需要设置某一个方位的边框、内边距或外边距，可以在属性名后面加上 **<code>-位置</code>**（<code>top</code> &#x2F; <code>bottom</code> &#x2F; <code>left</code> &#x2F; <code>right</code>）：</p>
+<ul>
+<li><strong>内边距单独控制</strong>：<code>padding-top</code>（上）、<code>padding-left</code>（左）、<code>padding-right</code>（右）、<code>padding-bottom</code>（下）。</li>
+<li><strong>外边距单独控制</strong>：<code>margin-bottom</code>（下外边距，常用于段落间距）。</li>
+<li><strong>边框单独控制</strong>：<code>border-bottom: 2px solid red;</code>（常用于制作下划线或导航条下边框）。</li>
+</ul>
+<h3 id="2-属性值连写规则（顺时针原则）"><a href="#2-属性值连写规则（顺时针原则）" class="headerlink" title="2. 属性值连写规则（顺时针原则）"></a>2. 属性值连写规则（顺时针原则）</h3><ul>
+<li><strong>4 个值</strong>：<code>padding: 10px 20px 30px 40px;</code> <ul>
+<li>➔ 严格遵循 <strong>顺时针原则</strong>：<strong>上（10px） ➔ 右（20px） ➔ 下（30px） ➔ 左（40px）</strong>。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="四、-拓展考点：盒子的实际大小计算"><a href="#四、-拓展考点：盒子的实际大小计算" class="headerlink" title="四、 拓展考点：盒子的实际大小计算"></a>四、 拓展考点：盒子的实际大小计算</h2><p>在标准样式下，一个盒子在网页上实际占用的空间（总宽高）并不是只有 <code>width</code> 和 <code>height</code>，它包含了：</p>
+<ul>
+<li><strong>实际宽度</strong> &#x3D; <code>width</code> + <code>padding-left</code> + <code>padding-right</code> + <code>border-left-width</code> + <code>border-right-width</code></li>
+<li><strong>实际高度</strong> &#x3D; <code>height</code> + <code>padding-top</code> + <code>padding-bottom</code> + <code>border-top-width</code> + <code>border-bottom-width</code></li>
+</ul>
+<blockquote>
+<p><strong>💡 贴心小提示（自动内缩盒子）：</strong><br>如果你觉得每次加了 <code>padding</code> 或 <code>border</code> 盒子就被“撑大”很麻烦，可以给盒子加上这行 CSS 属性：<br><code>box-sizing: border-box;</code> （怪异&#x2F;IE盒子模型）<br>这样设置之后，你指定的 <code>width</code> 和 <code>height</code> 就会直接包含 <code>padding</code> 和 <code>border</code>，盒子再也不会被无端撑大了！</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>my1-he
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2026/05/23/%E5%AD%A6%E4%B9%A0HTML_2/" title="学习HTML_2">http://example.com/2026/05/23/学习HTML_2/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/23/%E5%AD%A6%E4%B9%A0HTML_1/" rel="prev" title="学习HTML_1">
+                  <i class="fa fa-angle-left"></i> 学习HTML_1
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">my1-he</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div><!-- 运行时间显示容器（直接在 njk 里写好，带居中样式） -->
+<div id="running-time" style="text-align: center; width: 100%; margin: 8px 0 0; color: #777; font-size: 1em;"></div>
+
+<!-- 计时脚本 -->
+<script>
+// 👇 替换成你的博客上线日期
+const since = '2026-01-027 00:00:00';
+
+function updateRunningTime() {
+  const now = Date.now();
+  const timeDiff = Math.abs(now - new Date(since).getTime());
+  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+  document.getElementById('running-time').innerText = `小破站已安全运行 ${days} 天 | ${hours} 小时 ${minutes} 分 ${seconds} 秒😘 `;
+}
+
+// 立即执行+每秒更新
+updateRunningTime();
+setInterval(updateRunningTime, 1000);
+</script>
+
+
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/my1-he" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
