@@ -152,7 +152,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -219,7 +219,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/23/%E5%AD%A6%E4%B9%A0HTML_3/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2026/05/23/%E5%AD%A6%E4%B9%A0HTML_3/" class="post-title-link" itemprop="url">学习HTML_3</a>
         </h2>
 
         <div class="post-meta-container">
@@ -231,7 +231,16 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-23 17:04:26 / 修改时间：17:04:07" itemprop="dateCreated datePublished" datetime="2026-05-23T17:04:26+08:00">2026-05-23</time>
+      <time title="创建时间：2026-05-23 17:04:26 / 修改时间：17:06:04" itemprop="dateCreated datePublished" datetime="2026-05-23T17:04:26+08:00">2026-05-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
     </span>
 
   
@@ -244,37 +253,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <hr>
-<h2 id="title-学习HTML-3description-继续学习HTML的标签：表格，表单标签categories-前端tags-html"><a href="#title-学习HTML-3description-继续学习HTML的标签：表格，表单标签categories-前端tags-html" class="headerlink" title="title:学习HTML_3description:继续学习HTML的标签：表格，表单标签categories:前端tags:html"></a>title:学习HTML_3<br>description:继续学习HTML的标签：表格，表单标签<br>categories:前端<br>tags:html</h2><h2 id="一、-表格标签"><a href="#一、-表格标签" class="headerlink" title="一、 表格标签 (&lt;table&gt;)"></a>一、 表格标签 (<code>&lt;table&gt;</code>)</h2><p>表格标签主要用于展示结构化的数据。</p>
-<h3 id="1-核心标签组成"><a href="#1-核心标签组成" class="headerlink" title="1. 核心标签组成"></a>1. 核心标签组成</h3><ul>
-<li>**<code>&lt;table&gt;</code>**：定义一个表格的整体外框。</li>
-<li><strong><code>&lt;tr&gt;</code> (Table Row)<strong>：定义表格中的</strong>行</strong>，一个 <code>&lt;tr&gt;</code> 标签代表一行。</li>
-<li><strong><code>&lt;th&gt;</code> (Table Header)<strong>：定义</strong>表头单元格</strong>。默认具有<strong>加粗</strong>和<strong>居中</strong>的显示效果。</li>
-<li><strong><code>&lt;td&gt;</code> (Table Data)<strong>：定义</strong>普通单元格</strong>，用于存放具体的数据。</li>
-</ul>
-<h2 id="二、表单标签"><a href="#二、表单标签" class="headerlink" title="二、表单标签 (&lt;form&gt;)"></a>二、表单标签 (&lt;form&gt;)</h2><p>表单主要用于收集用户输入的数据，并将其打包提交到后台服务器。</p>
-<ol>
-<li><p>核心属性<br>action：指定表单数据提交的 URL 地址（即后台服务器的接收接口）。<br>method：指定表单的提交方式，最常用的两种是 get 和 post。</p>
-</li>
-<li><p>get 与 post 提交方式对比</p>
-<p>get：表单数据拼接在 URL 后面携带。大小有限制（受浏览器 URL 长度限制）</p>
-<p>post：表单数据在 HTTP 请求体（Request Body）中携带。大小没有限制</p>
-</li>
-</ol>
-<p>⚠️ 核心注意（重中之重）：<br>表单项标签必须具有 name 属性 才可以提交数据！如果没有定义 name 属性，对应的输入框数据将不会被发送给服务器。</p>
-<h2 id="三、表单项标签"><a href="#三、表单项标签" class="headerlink" title="三、表单项标签"></a>三、表单项标签</h2><p>表单项是嵌套在 <form> 标签内部、供用户进行操作和输入的具体组件。</p>
-<ol>
-<li><input> 标签的 type 属性<br><input> 标签通过改变 type 属性的值，可以展现为完全不同的表单控件：<br>text：单行文本输入框（普通输入框）<br>password：密码输入框（输入内容掩码隐藏）<br>radio：单选按钮（同 name 实现互斥单选）<br>checkbox：复选框 &#x2F; 多选框<br>file：文件上传域<br>date：日期选择器<br>datetime-local：本地日期时间选择器<br>time：时间选择器<br>number：数字输入框<br>hidden：隐藏表单域<br>button：普通按钮<br>submit：表单提交按钮</li>
-</ol>
-<h3 id="2-下拉列表标签"><a href="#2-下拉列表标签" class="headerlink" title="2. 下拉列表标签 (&lt;select&gt;)"></a>2. 下拉列表标签 (<code>&lt;select&gt;</code>)</h3><p>用于定义一个下拉选择菜单，内部配合 <code>&lt;option&gt;</code> 标签定义具体选项。</p>
-<select name="city">
-    <option value="bj">北京</option>
-    <option value="sh">上海</option>
-    <option value="gz">广州</option>
-</select>
-
-<h3 id="3-文本域标签"><a href="#3-文本域标签" class="headerlink" title="3. 文本域标签 (&lt;textarea&gt;)"></a>3. 文本域标签 (<code>&lt;textarea&gt;</code>)</h3><p>用于定义多行文本输入框（如评论区、留言板），可以通过 <code>rows</code> 和 <code>cols</code> 属性控制大小。</p>
-<textarea name="description" rows="5" cols="30">请在此输入个人简介...</textarea>
+          <p>继续学习HTML的标签：表格，表单标签</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/05/23/%E5%AD%A6%E4%B9%A0HTML_3/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
