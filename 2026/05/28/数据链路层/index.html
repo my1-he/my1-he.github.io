@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="计网的知识点也太多了">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="数据链路层">
+<meta property="og:url" content="http://example.com/2026/05/28/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/index.html">
+<meta property="og:site_name" content="my1-he|🏠个人博客">
+<meta property="og:description" content="计网的知识点也太多了">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-28T08:44:49.231Z">
+<meta property="article:modified_time" content="2026-05-28T08:44:29.122Z">
+<meta property="article:author" content="my1-he">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2026/05/28/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2026/05/28/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/","path":"2026/05/28/数据链路层/","title":"数据链路层"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>数据链路层 | my1-he|🏠个人博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">my1-he|🏠个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-捐赠"><a href="/donate/" rel="section"><i class="fa fa-heart fa-fw"></i>捐赠</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81-%E4%BF%A1%E9%81%93%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">一、 信道类型与基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81-%E5%B0%81%E8%A3%85%E6%88%90%E5%B8%A7%E7%9A%84%E6%8E%A7%E5%88%B6%E6%9C%BA%E5%88%B6%EF%BC%88%E5%AD%97%E8%8A%82%E5%A1%AB%E5%85%85%E4%B8%8E%E9%9B%B6%E6%AF%94%E7%89%B9%E5%A1%AB%E5%85%85%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">二、 封装成帧的控制机制（字节填充与零比特填充）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AD%97%E8%8A%82%E5%A1%AB%E5%85%85-Byte-Stuffing-%E2%80%94-%E9%9D%A2%E5%90%91%E5%AD%97%E8%8A%82%E7%9A%84%E9%93%BE%E8%B7%AF%EF%BC%88%E5%A6%82-PPP-%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">1. 字节填充 (Byte Stuffing) — 面向字节的链路（如 PPP 协议）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%9B%B6%E6%AF%94%E7%89%B9%E5%A1%AB%E5%85%85-Zero-bit-Stuffing-%E2%80%94-%E9%9D%A2%E5%90%91%E6%AF%94%E7%89%B9%E7%9A%84%E9%93%BE%E8%B7%AF"><span class="nav-number">2.2.</span> <span class="nav-text">2. 零比特填充 (Zero-bit Stuffing) — 面向比特的链路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81-%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B%EF%BC%9A%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E6%A3%80%E9%AA%8C-CRC"><span class="nav-number">3.</span> <span class="nav-text">三、 差错检测：循环冗余检验 (CRC)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A8%A1-2-%E7%AE%97%E6%B3%95%E6%A0%B8%E5%BF%83"><span class="nav-number">3.1.</span> <span class="nav-text">1. 模 2 算法核心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8F%91%E9%80%81%E7%AB%AF%E7%9A%84%E5%86%97%E4%BD%99%E7%A0%81%EF%BC%88FCS%EF%BC%89%E8%AE%A1%E7%AE%97"><span class="nav-number">3.2.</span> <span class="nav-text">2. 发送端的冗余码（FCS）计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%8E%A5%E6%94%B6%E7%AB%AF-CRC-%E6%A3%80%E9%AA%8C%E6%B5%81%E7%A8%8B"><span class="nav-number">3.3.</span> <span class="nav-text">3. 接收端 CRC 检验流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81-%E5%B1%80%E5%9F%9F%E7%BD%91%E6%80%BB%E7%BA%BF%E5%8D%8F%E8%AE%AE%EF%BC%9ACSMA-CD-%E5%8D%8F%E8%AE%AE"><span class="nav-number">4.</span> <span class="nav-text">四、 局域网总线协议：CSMA&#x2F;CD 协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%A2%B0%E6%92%9E%E7%9A%84%E9%87%8D%E8%A6%81%E7%89%B9%E6%80%A7%E4%B8%8E%E9%99%90%E5%88%B6"><span class="nav-number">4.1.</span> <span class="nav-text">1. 碰撞的重要特性与限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BA%89%E7%94%A8%E6%9C%9F%E4%B8%8E%E9%80%80%E9%81%BF%E7%AE%97%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">2. 争用期与退避算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%A1%AE%E5%AE%9A%E5%9F%BA%E6%9C%AC%E9%80%80%E9%81%BF%E6%97%B6%E9%97%B4%EF%BC%88%E4%BA%89%E7%94%A8%E6%9C%9F-2-tau-%EF%BC%89"><span class="nav-number">4.2.1.</span> <span class="nav-text">1. 确定基本退避时间（争用期 $2\tau$）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%AE%A1%E7%AE%97%E6%8E%A7%E5%88%B6%E5%8F%82%E6%95%B0-k"><span class="nav-number">4.2.2.</span> <span class="nav-text">2. 计算控制参数 $k$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E9%80%89%E5%8F%96%E9%9A%8F%E6%9C%BA%E6%95%B0-r-%E5%B9%B6%E8%AE%A1%E7%AE%97%E9%80%80%E9%81%BF%E6%97%B6%E9%97%B4"><span class="nav-number">4.2.3.</span> <span class="nav-text">3. 选取随机数 $r$ 并计算退避时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%EF%BC%9A%E6%94%BE%E5%BC%83%E8%AF%A5%E5%B8%A7"><span class="nav-number">4.2.4.</span> <span class="nav-text">4. 异常处理：放弃该帧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E6%BC%94%E7%BB%83%EF%BC%88%E4%BB%A5%E5%85%B7%E4%BD%93%E7%A2%B0%E6%92%9E%E6%AC%A1%E6%95%B0%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="nav-number">4.2.5.</span> <span class="nav-text">实例演练（以具体碰撞次数为例）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81-%E4%BB%A5%E5%A4%AA%E7%BD%91-MAC-%E5%B1%82%E4%B8%8E%E7%A1%AC%E4%BB%B6%E5%9C%B0%E5%9D%80"><span class="nav-number">5.</span> <span class="nav-text">五、 以太网 MAC 层与硬件地址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%80%82%E9%85%8D%E5%99%A8-%E7%BD%91%E5%8D%A1"><span class="nav-number">5.1.</span> <span class="nav-text">1. 适配器 (网卡)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8B%93%E6%89%91%E6%BC%94%E5%8F%98"><span class="nav-number">5.2.</span> <span class="nav-text">2. 局域网拓扑演变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BB%A5%E5%A4%AA%E7%BD%91-V2-%E7%9A%84-MAC-%E5%B8%A7%E6%A0%BC%E5%BC%8F%E8%AF%A6%E8%A7%A3-%E5%AF%B9%E7%85%A7%E5%9B%BE-3-22-%E7%BB%93%E6%9E%84"><span class="nav-number">5.3.</span> <span class="nav-text">3. 以太网 V2 的 MAC 帧格式详解 (对照图 3-22 结构)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%9A%A0%EF%B8%8F-%E7%89%A9%E7%90%86%E5%B1%82%E9%99%84%E5%8A%A0%E5%85%83%E7%B4%A0%EF%BC%88%E6%8F%92%E5%85%A5%E9%83%A8%E5%88%86%EF%BC%89"><span class="nav-number">5.3.1.</span> <span class="nav-text">⚠️ 物理层附加元素（插入部分）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E6%89%A9%E5%B1%95%E4%B8%8E%E7%8E%B0%E4%BB%A3%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="nav-number">6.</span> <span class="nav-text">六、 数据链路层扩展与现代以太网</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA-Switch-%E6%89%A9%E5%B1%95"><span class="nav-number">6.1.</span> <span class="nav-text">1. 以太网交换机 (Switch) 扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91-VLAN"><span class="nav-number">6.2.</span> <span class="nav-text">2. 虚拟局域网 (VLAN)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%AE%BD%E5%B8%A6%E6%8E%A5%E5%85%A5%EF%BC%9APPPoE-%E5%8D%8F%E8%AE%AE"><span class="nav-number">6.3.</span> <span class="nav-text">3. 以太网宽带接入：PPPoE 协议</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="my1-he"
+      src="/images/-15874840686009037.suf.jpg">
+  <p class="site-author-name" itemprop="name">my1-he</p>
+  <div class="site-description" itemprop="description">活着真好！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/my1-he" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;my1-he" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=spendpq@gmail.com" title="E-Mail → https:&#x2F;&#x2F;mail.google.com&#x2F;mail&#x2F;?view&#x3D;cm&amp;fs&#x3D;1&amp;to&#x3D;spendpq@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://unpkg.com/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://example.com/" title="https:&#x2F;&#x2F;example.com">Title</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/05/28/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/-15874840686009037.suf.jpg">
+      <meta itemprop="name" content="my1-he">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="my1-he|🏠个人博客">
+      <meta itemprop="description" content="活着真好！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="数据链路层 | my1-he|🏠个人博客">
+      <meta itemprop="description" content="计网的知识点也太多了">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据链路层
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-28 16:44:49 / 修改时间：16:44:29" itemprop="dateCreated datePublished" datetime="2026-05-28T16:44:49+08:00">2026-05-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">计网的知识点也太多了</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="一、-信道类型与基本概念"><a href="#一、-信道类型与基本概念" class="headerlink" title="一、 信道类型与基本概念"></a>一、 信道类型与基本概念</h2><ul>
+<li><strong>信道类型：</strong><ul>
+<li><strong>点对点信道：</strong> 一对一通信（如 PPP 协议）。</li>
+<li><strong>广播信道：</strong> 一对多通信（如以太网，需局域网协议协调）。</li>
+</ul>
+</li>
+<li><strong>数据链路层的三个基本问题：</strong><ol>
+<li><strong>封装成帧 (Framing)：</strong> 在一段数据的前后分别添加<strong>首部</strong>和<strong>尾部</strong>，以此来构成一个帧。首部和尾部的一个重要作用就是进行<strong>帧定界</strong>（确定帧的界限）。</li>
+<li><strong>透明传输 (Transparent Transmission)：</strong><ul>
+<li><strong>定义：</strong> 无论发送什么样的比特组合，数据都能够原样无误地通过数据链路层。也就是说，链路层对于上层交付的数据而言是“透明”的，就像没有阻碍一样。</li>
+<li><strong>问题所在：</strong> 当数据中偶然出现了与“控制字符”（如帧定界符）相同的二进制比特时，链路层可能会产生误判。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p>​		3. 差错检测</p>
+<h2 id="二、-封装成帧的控制机制（字节填充与零比特填充）"><a href="#二、-封装成帧的控制机制（字节填充与零比特填充）" class="headerlink" title="二、 封装成帧的控制机制（字节填充与零比特填充）"></a>二、 封装成帧的控制机制（字节填充与零比特填充）</h2><p>根据具体协议的不同，解决透明传输和控制字符冲突的做法主要有以下两种：</p>
+<h3 id="1-字节填充-Byte-Stuffing-—-面向字节的链路（如-PPP-协议）"><a href="#1-字节填充-Byte-Stuffing-—-面向字节的链路（如-PPP-协议）" class="headerlink" title="1. 字节填充 (Byte Stuffing) — 面向字节的链路（如 PPP 协议）"></a>1. 字节填充 (Byte Stuffing) — 面向字节的链路（如 PPP 协议）</h3><ul>
+<li><strong>标志字段 (Flag)：</strong> 规定特定比特（如 <code>0x7E</code>）为帧的边界。</li>
+<li><strong>转义字符：</strong> 引入转义字符（如 <code>0x7D</code>）。</li>
+<li><strong>具体做法规则：</strong><ul>
+<li>若数据中出现与标志字段相同的 <code>0x7E</code> $\rightarrow$ 转换为两字节序列 <code>(0x7D, 0x5E)</code>。</li>
+<li>若数据中偶然出现转义字符本身 <code>0x7D</code> $\rightarrow$ 转换为两字节序列 <code>(0x7D, 0x5D)</code>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-零比特填充-Zero-bit-Stuffing-—-面向比特的链路"><a href="#2-零比特填充-Zero-bit-Stuffing-—-面向比特的链路" class="headerlink" title="2. 零比特填充 (Zero-bit Stuffing) — 面向比特的链路"></a>2. 零比特填充 (Zero-bit Stuffing) — 面向比特的链路</h3><ul>
+<li><strong>标志字段：</strong> 同样以特定比特流（例如连续的 6 个 1：<code>01111110</code>）作为帧边界。</li>
+<li><strong>具体做法规则：</strong><ul>
+<li><strong>发送端：</strong> 在发送数据时，只要**连续发现 5 个连续的 <code>1</code><strong>，就必须在其后面</strong>强制填入 1 个 <code>0</code>**。</li>
+<li><strong>接收端：</strong> 在收到连续 5 个 <code>1</code> 后，若紧跟的是 <code>0</code>，则<strong>自动把该 <code>0</code> 删除</strong>，以此恢复出最原始的数据，从而保证透明传输。</li>
+</ul>
+</li>
+</ul>
+<h2 id="三、-差错检测：循环冗余检验-CRC"><a href="#三、-差错检测：循环冗余检验-CRC" class="headerlink" title="三、 差错检测：循环冗余检验 (CRC)"></a>三、 差错检测：循环冗余检验 (CRC)</h2><p>数据链路层使用可靠的数学手段来检测传输中是否发生了“比特差错”。</p>
+<h3 id="1-模-2-算法核心"><a href="#1-模-2-算法核心" class="headerlink" title="1. 模 2 算法核心"></a>1. 模 2 算法核心</h3><ul>
+<li><p><strong>模 2 加减法：</strong> 本质就是<strong>异或 (XOR)</strong> 运算。即相同的比特相加减得 <code>0</code>，不同的比特相加减得 <code>1</code>。</p>
+<blockquote>
+<p>$1 \oplus 1 &#x3D; 0$, $0 \oplus 0 &#x3D; 0$, $1 \oplus 0 &#x3D; 1$, $0 \oplus 1 &#x3D; 1$</p>
+</blockquote>
+</li>
+<li><p><strong>模 2 除法：</strong> 纯粹按位异或。在除法求余数的每一步中，只要当前余数的最高位是 <code>1</code>，商就是 <code>1</code>，并用除数进行异或；最高位是 <code>0</code>，商就是 <code>0</code>。它<strong>不向前借位</strong>。</p>
+</li>
+</ul>
+<h3 id="2-发送端的冗余码（FCS）计算"><a href="#2-发送端的冗余码（FCS）计算" class="headerlink" title="2. 发送端的冗余码（FCS）计算"></a>2. 发送端的冗余码（FCS）计算</h3><ol>
+<li>设待发送的数据为 $M$（共 $k$ 位），约定的除数（生成多项式）为 $P$（共 $n+1$ 位）。</li>
+<li>在数据 $M$ 后面添加 $n$ 个 <code>0</code>，使其变成 $k+n$ 位的全新数据 $\rightarrow M \cdot 2^n$。</li>
+<li>用此全新数据与除数 $P$ 进行<strong>模 2 除法</strong>运算，得到一个 $n$ 位的余数 $R$（该余数 $R$ 即为 <strong>FCS 帧检验序列</strong>）。</li>
+<li>将计算得到的 $R$ 直接拼接在原始数据 $M$ 后面，组成真正的传输帧发送出去。</li>
+</ol>
+<h3 id="3-接收端-CRC-检验流程"><a href="#3-接收端-CRC-检验流程" class="headerlink" title="3. 接收端 CRC 检验流程"></a>3. 接收端 CRC 检验流程</h3><ul>
+<li>接收端收到数据帧后，将接收到的整个数据（含 $M+R$）拿去**模 2 除以同样的除数 $P$**。</li>
+<li><strong>结果评判：</strong><ul>
+<li>若余数 <strong>$R &#x3D; 0$<strong>：证明传输过程</strong>无错</strong>，予以接收。</li>
+<li>若余数 <strong>$R \neq 0$<strong>：证明传输过程</strong>有错</strong>，直接丢弃该帧。</li>
+</ul>
+</li>
+</ul>
+<h2 id="四、-局域网总线协议：CSMA-CD-协议"><a href="#四、-局域网总线协议：CSMA-CD-协议" class="headerlink" title="四、 局域网总线协议：CSMA&#x2F;CD 协议"></a>四、 局域网总线协议：CSMA&#x2F;CD 协议</h2><p>在同一个时间段内，广播总线只允许一台计算机发送数据，否则会产生波形叠加（冲突）。为此引入了 <strong>CSMA&#x2F;CD（载波监听多点接入&#x2F;碰撞检测）</strong> 协议。</p>
+<ul>
+<li><strong>多点接入：</strong> 许多计算机连接在同一根总线上，共享传输介质。</li>
+<li><strong>载波监听：</strong> “边发送边监听”。在发送前及发送过程中，不间断地检测总线上有没有其他计算机在发送信号。</li>
+<li><strong>碰撞检测：</strong> “边发送边检测”。一旦监听到总线上的电压摆幅超过了设定阈值，即说明此时至少有两台计算机同时发包，发生了<strong>碰撞（冲突）</strong>。</li>
+</ul>
+<h3 id="1-碰撞的重要特性与限制"><a href="#1-碰撞的重要特性与限制" class="headerlink" title="1. 碰撞的重要特性与限制"></a>1. 碰撞的重要特性与限制</h3><ul>
+<li><strong>电磁波传播延时：</strong> 电磁波在 $1 \text{ km}$ 光缆&#x2F;电缆中的传播时延大约为 **$5\ \mu\text{s}$**。</li>
+<li><strong>半双工限制：</strong> 因为要时刻预防和检测碰撞，使用 CSMA&#x2F;CD 协议的局域网<strong>不可能同时进行发送和接收</strong>，因此它只能实现<strong>半双工通信</strong>。</li>
+<li><strong>集线器 (Hub) 的物理特性：</strong><ul>
+<li><strong>基带信号：</strong> 物理层传输的是由计算机直接发出的、未经过调制的原始电信号。</li>
+<li><strong>无源电缆：</strong> 传输线缆的内部没有任何有源电子器件去放大或处理信号，完全依赖两端设备的自驱力。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-争用期与退避算法"><a href="#2-争用期与退避算法" class="headerlink" title="2. 争用期与退避算法"></a>2. 争用期与退避算法</h3><ul>
+<li><p><strong>争用期 (Collision Window)：</strong></p>
+<ul>
+<li><p>定义为信号在总线两端往返的时间 $2\tau$（$\tau$ 为单程传播时延）。</p>
+</li>
+<li><p><strong>最后 1 个 bit 传输到目的地</strong>前，都有可能遭遇碰撞。</p>
+</li>
+<li><p>成功发送一个帧需要占用时间 $T_0$。定义参数：</p>
+<p>$$\alpha &#x3D; \frac{\tau}{T_0}$$</p>
+</li>
+</ul>
+</li>
+<li><p><strong>退避算法（截断二进制指数退避算法）：</strong></p>
+<ul>
+<li>当检测到碰撞后，计算机必须停止发送，并推迟一段<strong>随机的时间</strong>后再重新尝试发送。</li>
+<li><strong>信道利用率判定：</strong> 先经过装有若干个争用期 $2\tau$ 的冲突竞争阶段，最终 + 发送成功。</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-确定基本退避时间（争用期-2-tau-）"><a href="#1-确定基本退避时间（争用期-2-tau-）" class="headerlink" title="1. 确定基本退避时间（争用期 $2\tau$）"></a>1. 确定基本退避时间（争用期 $2\tau$）</h4><ul>
+<li>基本退避时间就是<strong>争用期（碰撞窗口）</strong>，其具体时间为 **$51.2\ \mu\text{s}$**。</li>
+<li>在 $10\text{ Mbit&#x2F;s}$ 的传统以太网中，争用期内可发送 $512\text{ bit}$（即 $64\text{ 字节}$）。因此，争用期也经常直接被称为 **$512\text{ 比特时间}$**。</li>
+</ul>
+<h4 id="2-计算控制参数-k"><a href="#2-计算控制参数-k" class="headerlink" title="2. 计算控制参数 $k$"></a>2. 计算控制参数 $k$</h4><p>参数 $k$ 决定了随机数可选范围的大小。计算公式为：</p>
+<p>$$k &#x3D; \text{Min}[\text{重传次数}, 10]$$</p>
+<ul>
+<li><strong>规则：</strong> * 当重传次数不超过 10 次时， $k$ 等于实际的重传次数。<ul>
+<li>当重传次数超过 10 次时， $k$ 不再增大，一直等于 10。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-选取随机数-r-并计算退避时间"><a href="#3-选取随机数-r-并计算退避时间" class="headerlink" title="3. 选取随机数 $r$ 并计算退避时间"></a>3. 选取随机数 $r$ 并计算退避时间</h4><ul>
+<li><p>从离散的整数集合 <strong>$[0, 1, \cdots, (2^k - 1)]$</strong> 中随机抽取一个整数，记为 **$r$**。</p>
+</li>
+<li><p><strong>重传应推迟的时间</strong>（即退避时间）为：</p>
+<p>$$r \times \text{争用期 (即 } r \times 51.2\ \mu\text{s} \text{ 或 } r \times 512\text{ 比特时间)}$$</p>
+</li>
+</ul>
+<h4 id="4-异常处理：放弃该帧"><a href="#4-异常处理：放弃该帧" class="headerlink" title="4. 异常处理：放弃该帧"></a>4. 异常处理：放弃该帧</h4><ul>
+<li>如果连续重传 <strong>16 次</strong> 仍不能成功，说明网络中同时打算发送数据的站太多，导致连续冲突过于严重。</li>
+<li>此时接收端将<strong>丢弃该帧</strong>，并向高层协议报告。</li>
+</ul>
+<h4 id="实例演练（以具体碰撞次数为例）"><a href="#实例演练（以具体碰撞次数为例）" class="headerlink" title="实例演练（以具体碰撞次数为例）"></a>实例演练（以具体碰撞次数为例）</h4><ul>
+<li><strong>第 1 次重传：</strong><ul>
+<li>$k &#x3D; 1$，随机数 $r$ 从集合 ${0, 1}$ 中随机选取。</li>
+<li>推迟的时间可选：$0$ 或 $2\tau$。</li>
+</ul>
+</li>
+<li><strong>第 2 次重传：</strong><ul>
+<li>$k &#x3D; 2$，随机数 $r$ 从集合 ${0, 1, 2, 3}$ 中随机选取。</li>
+<li>推迟的时间可选：$0, 2\tau, 4\tau$ 或 $6\tau$。</li>
+</ul>
+</li>
+<li><strong>第 3 次重传：</strong><ul>
+<li>$k &#x3D; 3$，随机数 $r$ 从集合 ${0, 1, 2, 3, 4, 5, 6, 7}$ 中随机选取。</li>
+<li>推迟的时间依此类推。</li>
+</ul>
+</li>
+</ul>
+<h2 id="五、-以太网-MAC-层与硬件地址"><a href="#五、-以太网-MAC-层与硬件地址" class="headerlink" title="五、 以太网 MAC 层与硬件地址"></a>五、 以太网 MAC 层与硬件地址</h2><h3 id="1-适配器-网卡"><a href="#1-适配器-网卡" class="headerlink" title="1. 适配器 (网卡)"></a>1. 适配器 (网卡)</h3><ul>
+<li>计算机与外界局域网连接的接口设备。</li>
+<li>内置有专职的处理硬件和存储器（如 <strong>RAM 和 ROM</strong>）。</li>
+<li><strong>核心功能：</strong> 计算机硬件地址（MAC 地址）就固化在网卡的 ROM 中；网卡负责把网络层的 IP 数据报封装成 MAC 帧，或者将收到的 MAC 帧拆封还原。</li>
+</ul>
+<blockquote>
+<p><strong>💡 核心概念辨析：</strong></p>
+<ul>
+<li><strong>IP 地址：</strong> 属于网络层，是逻辑上的虚拟地址（用于全局路由寻址）。</li>
+<li><strong>MAC 地址：</strong> 属于数据链路层，是物理硬件的固有地址（局域网内精准识别）。</li>
+</ul>
+</blockquote>
+<h3 id="2-局域网拓扑演变"><a href="#2-局域网拓扑演变" class="headerlink" title="2. 局域网拓扑演变"></a>2. 局域网拓扑演变</h3><ul>
+<li>使用<strong>集线器</strong>的传统局域网虽然在<strong>物理上呈现星形拓扑</strong>，但其<strong>逻辑上依然是一根总线</strong>。所有主机共享同一带宽，仍需严格使用 <strong>CSMA&#x2F;CD 协议</strong>。</li>
+</ul>
+<h3 id="3-以太网-V2-的-MAC-帧格式详解-对照图-3-22-结构"><a href="#3-以太网-V2-的-MAC-帧格式详解-对照图-3-22-结构" class="headerlink" title="3. 以太网 V2 的 MAC 帧格式详解 (对照图 3-22 结构)"></a>3. 以太网 V2 的 MAC 帧格式详解 (对照图 3-22 结构)</h3><p>根据教材插图 <code>1000055077.jpg</code> 的严格定义，一个完整的以太网 MAC 帧由 <strong>5 个字段</strong> 构成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+------------+------------+------------+-----------------------+------------+</span><br><span class="line">| 目的地址   |  源地址    |    类型    |          数据         |    FCS     | (MAC层)</span><br><span class="line">+------------+------------+------------+-----------------------+------------+</span><br><span class="line">   6 字节       6 字节       2 字节         46 ～ 1500 字节        4 字节</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>目的地址 (6 字节)：</strong> 接收端的硬件 MAC 地址。</p>
+</li>
+<li><p><strong>源地址 (6 字节)：</strong> 发送端的硬件 MAC 地址。</p>
+</li>
+<li><p><strong>类型 (2 字节)：</strong> 用来标志上一层使用的是什么协议，以便把收到的 MAC 帧数据准确上交给对应的上层协议。</p>
+<ul>
+<li><em>例如：</em> 当该字段的值为 <code>0x0800</code> 时，表示上层使用的是 <strong>IP 数据报</strong>。</li>
+</ul>
+</li>
+<li><p><strong>数据字段 (46 ~ 1500 字节)：</strong> 帧的有效载荷（即上层的 IP 数据报）。</p>
+<ul>
+<li><p><em>为什么数据字段最小是 46 字节？</em> 以太网规定最短有效帧长为 64 字节。减去首部和尾部共 18 字节（$6+6+2+4 &#x3D; 18$），即得出数据字段的最小长度为：</p>
+<p>$$64 - 18 &#x3D; 46 \text{ 字节}$$</p>
+</li>
+</ul>
+</li>
+<li><p><strong>FCS 字段 (4 字节)：</strong> 帧检验序列，用于存放上一节提到的 CRC 校验码。</p>
+</li>
+</ul>
+<h4 id="⚠️-物理层附加元素（插入部分）"><a href="#⚠️-物理层附加元素（插入部分）" class="headerlink" title="⚠️ 物理层附加元素（插入部分）"></a>⚠️ 物理层附加元素（插入部分）</h4><p>在 MAC 帧被传送到物理层准备在网线上发射时，物理层会在帧的前面插入 <strong>8 个字节</strong> 的前导数据：</p>
+<ul>
+<li><strong>前同步码 (7 字节)：</strong> 复杂的比特流（<code>10101010...</code>），用于使接收端的时钟与发送端达到同步。</li>
+<li><strong>帧开始定界符 (1 字节)：</strong> 比特流为 <code>10101011</code>，最后的两个连续 <code>1</code> 明确提示接收端：“真正的 MAC 帧从下一个比特正式开始！”。</li>
+</ul>
+<h2 id="六、-数据链路层扩展与现代以太网"><a href="#六、-数据链路层扩展与现代以太网" class="headerlink" title="六、 数据链路层扩展与现代以太网"></a>六、 数据链路层扩展与现代以太网</h2><p>随着技术演进，现代局域网的形态发生了根本性改变：</p>
+<h3 id="1-以太网交换机-Switch-扩展"><a href="#1-以太网交换机-Switch-扩展" class="headerlink" title="1. 以太网交换机 (Switch) 扩展"></a>1. 以太网交换机 (Switch) 扩展</h3><ul>
+<li><strong>网桥与交换机：</strong> 现代局域网采用<strong>交换机</strong>作为核心连接设备（以太网交换机实质上是一个多端口的网桥）。</li>
+<li><strong>不再有碰撞问题：</strong> 交换机具有独占带宽和并行转发能力，并且主机与交换机之间采用<strong>全双工方式工作</strong>。因此，在现代由交换机组建的以太网中，<strong>不再使用 CSMA&#x2F;CD 协议</strong>。</li>
+</ul>
+<h3 id="2-虚拟局域网-VLAN"><a href="#2-虚拟局域网-VLAN" class="headerlink" title="2. 虚拟局域网 (VLAN)"></a>2. 虚拟局域网 (VLAN)</h3><ul>
+<li>通过局域网内的软件配置，将物理上的局域网设备按需逻辑划分成不同的“虚拟子网”，从而能够有效隔离广播域，提高安全性和网络效率。</li>
+</ul>
+<h3 id="3-以太网宽带接入：PPPoE-协议"><a href="#3-以太网宽带接入：PPPoE-协议" class="headerlink" title="3. 以太网宽带接入：PPPoE 协议"></a>3. 以太网宽带接入：PPPoE 协议</h3><ul>
+<li><strong>PPPoE (PPP over Ethernet)：</strong> 意思是“在以太网上传输 PPP 协议”。</li>
+<li><strong>应用场景：</strong> 它把点对点协议（PPP）封装到以太网架构中。我们常见的家庭光纤宽带拨号上网，运营商就是利用 PPPoE 来对用户进行身份认证、计费和动态分配 IP 地址的。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>my1-he
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2026/05/28/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" title="数据链路层">http://example.com/2026/05/28/数据链路层/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"># 计算机网络</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/25/%E5%AD%A6%E4%B9%A0JS_2/" rel="prev" title="学习JS_2">
+                  <i class="fa fa-angle-left"></i> 学习JS_2
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">my1-he</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div><!-- 运行时间显示容器（直接在 njk 里写好，带居中样式） -->
+<div id="running-time" style="text-align: center; width: 100%; margin: 8px 0 0; color: #777; font-size: 1em;"></div>
+
+<!-- 计时脚本 -->
+<script>
+// 👇 替换成你的博客上线日期
+const since = '2026-01-027 00:00:00';
+
+function updateRunningTime() {
+  const now = Date.now();
+  const timeDiff = Math.abs(now - new Date(since).getTime());
+  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+  document.getElementById('running-time').innerText = `小破站已安全运行 ${days} 天 | ${hours} 小时 ${minutes} 分 ${seconds} 秒😘 `;
+}
+
+// 立即执行+每秒更新
+updateRunningTime();
+setInterval(updateRunningTime, 1000);
+</script>
+
+
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/my1-he" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
